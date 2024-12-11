@@ -10,3 +10,9 @@ class VehiclesSerializer(serializers.ModelSerializer):
         fields = ('model', 'year', 'vin')
 
 
+class SensorsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sensors
+        fields = ('SENSOR_TYPES', 'installed_date', 'type', 'vehicles')
+
+
