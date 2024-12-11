@@ -16,3 +16,9 @@ class SensorsSerializer(serializers.ModelSerializer):
         fields = ('SENSOR_TYPES', 'installed_date', 'type', 'vehicles')
 
 
+class ServiceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Service_centers
+        fields = ('name', 'address', 'phone', 'rating')
+
+
