@@ -22,3 +22,15 @@ class ServiceSerializer(serializers.ModelSerializer):
         fields = ('name', 'address', 'phone', 'rating')
 
 
+class MaintenanceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Maintenance
+        fields = ('SERVICE_TYPES', 'vehicle', 'service_type', 'scheduled_date')
+
+
+    def validate_scheduled_date(self, obj):
+        a = obj.get('scheduled_date')
+        today = date.today()
+        if a > today:
+            raise ValidationError('Xizmat rejalashtirilgan sana xato')
+        return obj.data
