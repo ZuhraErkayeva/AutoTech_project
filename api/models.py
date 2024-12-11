@@ -23,5 +23,16 @@ class Sensors(models.Model):
         return self.type
 
 
+class Service_centers(models.Model):
+    name = models.TextField()
+    address = models.TextField()
+    phone = models.CharField(max_length=15)
+    rating = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+
+
 
 
