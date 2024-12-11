@@ -18,3 +18,6 @@ class ServiceViewSet(ModelViewSet):
     serializer_class = ServiceSerializer
 
 
+class MaintenanceViewSet(ModelViewSet):
+    queryset = Maintenance.objects.all()
+    serializer_class = MaintenanceSerializer
