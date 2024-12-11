@@ -13,3 +13,8 @@ class SensorViewSet(ModelViewSet):
     serializer_class = SensorsSerializer
 
 
+class ServiceViewSet(ModelViewSet):
+    queryset = Service_centers.objects.all()
+    serializer_class = ServiceSerializer
+
+
