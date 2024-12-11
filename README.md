@@ -5,6 +5,10 @@ This project is a Django REST Framework-based application for managing vehicles,
 
 ---
 
+## Authenticated
+
+- **To use the project, you need to pass authentication**
+
 ## Features
 
 - **Vehicles Management**: Add, view, update, and delete vehicles.

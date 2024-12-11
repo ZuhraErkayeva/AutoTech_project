@@ -33,7 +33,7 @@ class Service_centers(models.Model):
         return self.name
 
 
- class Maintenance(models.Model):
+class Maintenance(models.Model):
     SERVICE_TYPES = [
         ('oil_change', 'Moy almashtirish'),
         ('gasoline_refill', 'Benzin quyish'),
