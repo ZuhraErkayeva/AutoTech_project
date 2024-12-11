@@ -7,3 +7,9 @@ class VehicleViewSet(ModelViewSet):
     queryset = Vehicles.objects.all()
     serializer_class = VehiclesSerializer
 
+
+class SensorViewSet(ModelViewSet):
+    queryset = Sensors.objects.all()
+    serializer_class = SensorsSerializer
+
+
