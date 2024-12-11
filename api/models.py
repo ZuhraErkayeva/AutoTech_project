@@ -33,6 +33,18 @@ class Service_centers(models.Model):
         return self.name
 
 
+ class Maintenance(models.Model):
+    SERVICE_TYPES = [
+        ('oil_change', 'Moy almashtirish'),
+        ('gasoline_refill', 'Benzin quyish'),
+        ('engine_temp', 'Dvigatel harorati')
+    ]
 
+    vehicle = models.ForeignKey(Vehicles, on_delete=models.CASCADE)
+    service_type = models.CharField(max_length=100, choices=SERVICE_TYPES)
+    scheduled_date = models.DateField()
+
+    def __str__(self):
+        return self.scheduled_date
 
 
