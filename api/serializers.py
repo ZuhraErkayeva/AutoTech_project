@@ -7,30 +7,29 @@ from .models import Vehicles, Sensors, Service_centers, Maintenance
 class VehiclesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vehicles
-        fields = ('model', 'year', 'vin')
+        fields = ('id','model', 'year', 'vin')
 
 
 class SensorsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sensors
-        fields = ('SENSOR_TYPES', 'installed_date', 'type', 'vehicles')
+        fields = ('id', 'installed_date', 'type', 'vehicles')
 
 
 class ServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Service_centers
-        fields = ('name', 'address', 'phone', 'rating')
+        fields = ('id','name', 'address', 'phone', 'rating')
 
 
 class MaintenanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Maintenance
-        fields = ('SERVICE_TYPES', 'vehicle', 'service_type', 'scheduled_date')
+        fields = ('id', 'vehicle', 'service_type', 'scheduled_date')
 
 
-    def validate_scheduled_date(self, obj):
-        a = obj.get('scheduled_date')
+    def validate_scheduled_date(self, value):
         today = date.today()
-        if a > today:
+        if value <= today:
             raise ValidationError('Xizmat rejalashtirilgan sana xato')
-        return obj.data
+        return value
